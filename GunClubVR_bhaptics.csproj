@@ -35,6 +35,10 @@
       <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="MelonLoader">
       <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\MelonLoader.dll</HintPath>
       <Private>False</Private>

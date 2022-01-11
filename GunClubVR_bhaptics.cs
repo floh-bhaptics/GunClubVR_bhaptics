@@ -21,16 +21,20 @@ namespace GunClubVR_bhaptics
             tactsuitVr.PlaybackHaptics("HeartBeat");
         }
 
-        [HarmonyPatch(typeof(WeaponInteraction), "FireHaptics", new Type[] { typeof(int) })]
-        public class bhaptics_WeaponHandlerFire
+        [HarmonyPatch(typeof(TBMVRDevice), "FireHaptics", new Type[] { typeof(Side), typeof(VibrationForce) })]
+        public class bhaptics_WeaponHandlerFire3
         {
             [HarmonyPostfix]
-            public static void Postfix(WeaponInteraction __instance, int side)
+            public static void Postfix(Side handSide, VibrationForce force)
             {
-                tactsuitVr.LOG("Fire side: " + side.ToString());
-                tactsuitVr.Recoil("Pistol", true);
+                if ((force == VibrationForce.Light) | (force == VibrationForce.None)) return;
+                float intensity = 1.0f;
+                if (force == VibrationForce.Medium) intensity = 0.7f;
+                tactsuitVr.Recoil("Pistol", (handSide == Side.Right), intensity);
+                //tactsuitVr.LOG("Haptics: " + handSide.ToString() + " " + force.ToString());
             }
         }
+
 
     }
 }
