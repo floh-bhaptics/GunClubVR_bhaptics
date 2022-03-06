@@ -111,7 +111,7 @@ namespace MyBhapticsTactsuit
             bHaptics.SubmitRegistered(key, key, scaleOption, rotationOption);
         }
 
-        public void Recoil(string weaponName, bool isRightHand, float intensity = 1.0f)
+        public void Recoil(string weaponName, bool isRightHand, float intensity = 1.0f, bool isRightHanded=true)
         {
             // weaponName is a parameter that will go into the vest feedback pattern name
             // isRightHand is just which side the feedback is on
@@ -126,14 +126,15 @@ namespace MyBhapticsTactsuit
             if (isRightHand) { postfix = "_R"; }
 
             // stitch together pattern names for Arm and Hand recoil
-            string keyHands = "RecoilHands" + postfix;
-            string keyArm = "RecoilArms" + postfix;
+            string keyHands = "Recoil" + weaponName + "Hands" + postfix;
+            string keyArm = "Recoil" + weaponName + "Arms" + postfix;
             // vest pattern name contains the weapon name. This way, you can quickly switch
             // between swords, pistols, shotguns, ... by just changing the shoulder feedback
             // and scaling via the intensity for arms and hands
             string keyVest = "Recoil" + weaponName + "Vest" + postfix;
             bHaptics.SubmitRegistered(keyHands, keyHands, scaleOption, rotationFront);
             bHaptics.SubmitRegistered(keyArm, keyArm, scaleOption, rotationFront);
+            if (isRightHand != isRightHanded) return;
             bHaptics.SubmitRegistered(keyVest, keyVest, scaleOption, rotationFront);
         }
 

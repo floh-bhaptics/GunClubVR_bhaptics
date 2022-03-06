@@ -13,6 +13,7 @@ namespace GunClubVR_bhaptics
     public class GunClubVR_bhaptics : MelonMod
     {
         public static TactsuitVR tactsuitVr;
+        public static bool isRightHanded = true;
 
         public override void OnApplicationStart()
         {
@@ -30,7 +31,7 @@ namespace GunClubVR_bhaptics
                 if ((force == VibrationForce.Light) | (force == VibrationForce.None)) return;
                 float intensity = 1.0f;
                 if (force == VibrationForce.Medium) { intensity = 0.7f; }
-                tactsuitVr.Recoil("Pistol", (handSide == Side.Right), intensity);
+                tactsuitVr.Recoil("Pistol", (handSide == Side.Right), intensity, isRightHanded);
             }
         }
         
@@ -44,20 +45,37 @@ namespace GunClubVR_bhaptics
             }
         }
 
-        /*
-        [HarmonyPatch(typeof(AudioHandler), "PlaySound", new Type[] { typeof(UnityEngine.AudioClip) })]
-        public class bhaptics_PlaySound5
+        
+        [HarmonyPatch(typeof(MenuInterface), "SetLeftHanded", new Type[] {  })]
+        public class bhaptics_LeftHanded
         {
             [HarmonyPostfix]
-            public static void Postfix(UnityEngine.AudioClip soundClip)
+            public static void Postfix()
             {
-                // aUILevelUpExplosion
-                // 
-                if (soundClip.name == "aUIPlayerDamaged") tactsuitVr.PlaybackHaptics("Impact");
-                tactsuitVr.LOG("Audio5 " + soundClip.name);
+                isRightHanded = false;
             }
         }
-        */
+
+        [HarmonyPatch(typeof(MenuInterface), "SetRightHanded", new Type[] { })]
+        public class bhaptics_RightHanded
+        {
+            [HarmonyPostfix]
+            public static void Postfix()
+            {
+                isRightHanded = true;
+            }
+        }
+
+        [HarmonyPatch(typeof(WeaponHandednessSwapper), "SetTargetHandedness", new Type[] { typeof(bool) })]
+        public class bhaptics_SwapHandedness
+        {
+            [HarmonyPostfix]
+            public static void Postfix(bool rightHanded)
+            {
+                isRightHanded = rightHanded;
+            }
+        }
+
         [HarmonyPatch(typeof(AudioHandler), "PlaySoundAtPoint", new Type[] { typeof(UnityEngine.Vector3), typeof(UnityEngine.AudioClip) })]
         public class bhaptics_PlaySound6
         {
