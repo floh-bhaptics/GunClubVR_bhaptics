@@ -15,9 +15,8 @@ namespace GunClubVR_bhaptics
         public static TactsuitVR tactsuitVr;
         public static bool isRightHanded = true;
 
-        public override void OnApplicationStart()
+        public override void OnInitializeMelon()
         {
-            base.OnApplicationStart();
             tactsuitVr = new TactsuitVR();
             tactsuitVr.PlaybackHaptics("HeartBeat");
         }

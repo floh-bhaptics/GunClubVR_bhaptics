@@ -31,16 +31,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\net35\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\Gun Club VR_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\Gun Club VR_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="bHapticsLib">
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\net35\bHapticsLib.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="MelonLoader">
-      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\MelonLoader.dll</HintPath>
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\net35\MelonLoader.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -52,19 +60,19 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\Managed\UnityEngine.dll</HintPath>
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\Gun Club VR_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.AudioModule">
-      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\Managed\UnityEngine.AudioModule.dll</HintPath>
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\Gun Club VR_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\Gun Club VR_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.PhysicsModule">
-      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\MelonLoader\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+      <HintPath>D:\Games\Oculus\Software\the-binary-mill-gun-club-vr\Gun Club VR_Data\Managed\UnityEngine.PhysicsModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
