@@ -8,6 +8,10 @@ using MelonLoader;
 using HarmonyLib;
 using MyBhapticsTactsuit;
 
+[assembly: MelonInfo(typeof(GunClubVR_bhaptics.GunClubVR_bhaptics), "GunClubVR_bhaptics", "2.0.0", "Florian Fahrenberger")]
+[assembly: MelonGame("NextGen Reality", "Gun Club VR")]
+
+
 namespace GunClubVR_bhaptics
 {
     public class GunClubVR_bhaptics : MelonMod
